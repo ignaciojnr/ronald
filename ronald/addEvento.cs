@@ -24,9 +24,15 @@ namespace ronald
 
         private void addEvento_Load(object sender, EventArgs e)
         {
+            dateTimePicker1.MinDate = DateTime.Today;
             string consulta = "SELECT rut , nombre FROM cliente;";
             if(cosasGlobales.arrojaResultados(consulta))
             cosasGlobales.llenarCombobox(comboBox1,"rut","nombre",consulta);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

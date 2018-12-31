@@ -10,6 +10,7 @@ namespace ronald
 {
     public static class cosasGlobales
     {
+        //public static string strConexion = "server=localhost; database= ronald;Uid=root;pwd=123456;SSL Mode=None;";
         public static string strConexion = "server=localhost; database= ronald;Uid=root;pwd=092947411;SSL Mode=None;";
         public static MySqlConnection miConexion = new MySqlConnection(strConexion);
 
