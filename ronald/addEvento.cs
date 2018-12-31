@@ -24,7 +24,9 @@ namespace ronald
 
         private void addEvento_Load(object sender, EventArgs e)
         {
-            cosasGlobales.llenarCombobox(comboBox1);
+            string consulta = "SELECT rut , nombre FROM cliente;";
+            if(cosasGlobales.arrojaResultados(consulta))
+            cosasGlobales.llenarCombobox(comboBox1,"rut","nombre",consulta);
         }
     }
 }

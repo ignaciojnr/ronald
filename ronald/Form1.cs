@@ -21,5 +21,13 @@ namespace ronald
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addEvento forumEvento = new addEvento();
+            forumEvento.ShowDialog();
+            this.Show();
+        }
     }
 }
