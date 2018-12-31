@@ -36,30 +36,31 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(140, 80);
+            this.button1.Location = new System.Drawing.Point(140, 69);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 44);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Ingresar Evento";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(292, 80);
+            this.button2.Location = new System.Drawing.Point(292, 69);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 44);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
+            this.button2.Text = "Ingresar Proveedor";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(140, 130);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(75, 43);
             this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
+            this.button3.Text = "Administrar Evento";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -67,7 +68,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
+            this.button4.Text = "Reportes";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // Form1

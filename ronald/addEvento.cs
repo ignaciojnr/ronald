@@ -10,16 +10,21 @@ using System.Windows.Forms;
 
 namespace ronald
 {
-    public partial class Form1 : Form
+    public partial class addEvento : Form
     {
-        public Form1()
+        public addEvento()
         {
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addEvento_Load(object sender, EventArgs e)
+        {
+            cosasGlobales.llenarCombobox(comboBox1);
         }
     }
 }
