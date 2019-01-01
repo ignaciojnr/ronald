@@ -112,6 +112,26 @@ namespace ronald
 
         }
 
+        public static void mensajeError(string mensaje) {
+            MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public static bool insertarGeneral(string consulta) {
+            int resultado = ejecutarConsulta(consulta);
+
+            if (resultado > 0)
+            {
+                MessageBox.Show("Ingreso correcto");
+
+
+            }
+            else
+            {
+                mensajeError("No se pudo guardar los datos");
+
+            }
+
+            return resultado > 0;
+        }
     }
 
 

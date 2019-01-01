@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addCliente.Designer.cs">
+      <DependentUpon>addCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="addEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addCliente.resx">
+      <DependentUpon>addCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addEvento.resx">
       <DependentUpon>addEvento.cs</DependentUpon>
     </EmbeddedResource>

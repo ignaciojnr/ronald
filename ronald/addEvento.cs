@@ -25,14 +25,27 @@ namespace ronald
         private void addEvento_Load(object sender, EventArgs e)
         {
             dateTimePicker1.MinDate = DateTime.Today;
-            string consulta = "SELECT rut , nombre FROM cliente;";
-            if(cosasGlobales.arrojaResultados(consulta))
-            cosasGlobales.llenarCombobox(comboBox1,"rut","nombre",consulta);
+            refrescarComboBox();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void refrescarComboBox() {
+            string consulta = "SELECT rut,  CONCAT(nombre, ' (', rut,')') As nom FROM cliente order by nombre;";
+            if (cosasGlobales.arrojaResultados(consulta))
+                cosasGlobales.llenarCombobox(comboBox1, "rut", "nom", consulta);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addCliente nuevoCliente = new addCliente();
+            nuevoCliente.ShowDialog();
+            refrescarComboBox();
+            this.Show();
         }
     }
 }
