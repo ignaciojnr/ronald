@@ -74,6 +74,29 @@ namespace ronald
 
         }
 
+        internal static void llenarListBox(ListBox listBox1, string values, string display, string consulta)
+        {
+            miConexion.Open();
+
+            MySqlCommand micodigo = new MySqlCommand();
+            MySqlConnection miconectar = miConexion;
+            miconectar.Close();
+            miconectar.Open();
+            micodigo.Connection = miconectar;
+
+            micodigo.CommandText = consulta;
+            MySqlDataAdapter da1 = new MySqlDataAdapter(micodigo);
+            DataTable dt = new DataTable();
+            da1.Fill(dt);
+
+            listBox1.ValueMember = values;
+            listBox1.DisplayMember = display;
+            listBox1.DataSource = dt;
+
+            miconectar.Close();
+
+        }
+
         internal static bool arrojaResultados(string consulat)
         {
 

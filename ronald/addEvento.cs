@@ -47,5 +47,19 @@ namespace ronald
             refrescarComboBox();
             this.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text=="") {
+                cosasGlobales.mensajeError("el nombre del evento no puede ser vacio");
+                return;
+            }
+            string consulta = "INSERT INTO evento (`fecha`, `clienterut`) VALUES ('" + dateTimePicker1.Text + "', '" + comboBox1.SelectedValue.ToString() +"');";
+            cosasGlobales.insertarGeneral(consulta);
+            textBox1.ResetText();
+            dateTimePicker1.ResetText();
+            this.Hide();
+
+        }
     }
 }

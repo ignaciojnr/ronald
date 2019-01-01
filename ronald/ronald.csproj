@@ -69,6 +69,12 @@
     <Compile Include="addProveedor.Designer.cs">
       <DependentUpon>addProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="adminEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminEvento.Designer.cs">
+      <DependentUpon>adminEvento.cs</DependentUpon>
+    </Compile>
     <Compile Include="cosasGlobales.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="addProveedor.resx">
       <DependentUpon>addProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminEvento.resx">
+      <DependentUpon>adminEvento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
