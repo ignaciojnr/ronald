@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector NET 8.0\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,11 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addCliente.Designer.cs">
+      <DependentUpon>addCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="addEvento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="addEvento.Designer.cs">
       <DependentUpon>addEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addProveedor.Designer.cs">
+      <DependentUpon>addProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="cosasGlobales.cs" />
     <Compile Include="Form1.cs">
@@ -62,8 +76,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addCliente.resx">
+      <DependentUpon>addCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addEvento.resx">
       <DependentUpon>addEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addProveedor.resx">
+      <DependentUpon>addProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
