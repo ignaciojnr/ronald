@@ -83,7 +83,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(128, 73);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(223, 21);
+            this.comboBox1.Size = new System.Drawing.Size(363, 21);
             this.comboBox1.TabIndex = 2;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -107,7 +107,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(168, 174);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Ingreso";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -150,7 +150,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(168, 174);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Egreso";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -176,8 +176,10 @@
             // 
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
-            "Boleta",
-            "Factura"});
+            "Boletas Comerciales",
+            "Boletas de Honorarios",
+            "Factura",
+            "Pago Provicional Mensual"});
             this.comboBox3.Location = new System.Drawing.Point(10, 76);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
@@ -276,9 +278,9 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(370, 136);
+            this.comboBox2.Location = new System.Drawing.Point(341, 136);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.Size = new System.Drawing.Size(167, 21);
             this.comboBox2.TabIndex = 10;
             // 
             // label6
@@ -292,7 +294,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(373, 196);
+            this.numericUpDown1.Location = new System.Drawing.Point(341, 196);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,

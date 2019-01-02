@@ -98,7 +98,7 @@ namespace ronald
             int[] vectImpuestos = new int[vectnom.Length];
             for (int i = 0; i < vectnom.Length; i++)
             {
-                vectnom[i] = cosasGlobales.MonthName( Int32.Parse(mitabla2.Rows[i].ItemArray[0].ToString()));
+                vectnom[i] = cosasGlobales.MonthName( Int32.Parse(mitabla2.Rows[i].ItemArray[0].ToString())).ToUpper();
                 vectImpuestos[i] = Int32.Parse(mitabla2.Rows[i].ItemArray[1].ToString());
             }
             for (int i = 1; i<vectImpuestos.Length;i++) {
@@ -116,7 +116,7 @@ namespace ronald
             */
             for (int i =0;i<vectnom.Length;i++) {
                 Series series = chart2.Series.Add(vectnom[i]);
-                series.Label = vectImpuestos[i].ToString();
+                series.Label = vectnom[i]+"\n"+ vectImpuestos[i].ToString();
                 series.Points.Add(vectImpuestos[i]);
                 
             }
@@ -142,7 +142,7 @@ namespace ronald
             int[] vectUtilidad = new int[vectnom.Length];
             for (int i = 0; i < vectnom.Length; i++)
             {
-                vectnom[i] = cosasGlobales.MonthName(Int32.Parse(mitabla3.Rows[i].ItemArray[0].ToString()));
+                vectnom[i] = cosasGlobales.MonthName(Int32.Parse(mitabla3.Rows[i].ItemArray[0].ToString())).ToUpper();
                 vectUtilidad[i] = Int32.Parse(mitabla3.Rows[i].ItemArray[1].ToString());
             }
            
@@ -160,7 +160,7 @@ namespace ronald
             for (int i = 0; i < vectnom.Length; i++)
             {
                 Series series = chart3.Series.Add(vectnom[i]);
-                series.Label = vectUtilidad[i].ToString();
+                series.Label = vectnom[i]+ "\n" + vectUtilidad[i].ToString();
                 series.Points.Add(vectUtilidad[i]);
                 if (vectUtilidad[i] < kpi) {
                     series.Color = Color.Red;
