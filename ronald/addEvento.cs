@@ -54,11 +54,17 @@ namespace ronald
                 cosasGlobales.mensajeError("el nombre del evento no puede ser vacio");
                 return;
             }
-            string consulta = "INSERT INTO evento (`fecha`, `clienterut`) VALUES ('" + dateTimePicker1.Text + "', '" + comboBox1.SelectedValue.ToString() +"');";
-            cosasGlobales.insertarGeneral(consulta);
+            string consulta = "INSERT INTO evento (`nombre`, `fecha`, `clienterut`) VALUES ('" + textBox1.Text + "', '" + dateTimePicker1.Text + "', '" + comboBox1.SelectedValue.ToString() + "');";
+            string evencode = "";
+            if (cosasGlobales.insertarGeneral(consulta))
+                evencode = cosasGlobales.getDatoUnico("SELECT LAST_INSERT_ID();");
             textBox1.ResetText();
             dateTimePicker1.ResetText();
             this.Hide();
+            adminEvento formAdminEvento = new adminEvento(evencode);
+            formAdminEvento.ShowDialog();
+            this.Show();
+
 
         }
     }
