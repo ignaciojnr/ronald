@@ -19,7 +19,10 @@ namespace ronald
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            adminEvento formadminEvento = new adminEvento("");
+            formadminEvento.ShowDialog();
+            this.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,6 +31,24 @@ namespace ronald
             addEvento forumEvento = new addEvento();
             forumEvento.ShowDialog();
             this.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            reportes reporte = new reportes();
+            reporte.ShowDialog();
+            this.Show();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addProducto producto = new addProducto();
+            producto.ShowDialog();
+            this.Show();
+
         }
     }
 }
