@@ -118,6 +118,9 @@
     <EmbeddedResource Include="adminEvento.resx">
       <DependentUpon>adminEvento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="configurarConeccion.resx">
+      <DependentUpon>configurarConeccion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
