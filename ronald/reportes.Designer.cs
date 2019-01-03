@@ -96,6 +96,8 @@
             // 
             // chart1
             // 
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisY.Minimum = 0D;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -172,6 +174,7 @@
             // 
             // chart2
             // 
+            chartArea2.AxisX.MajorGrid.Enabled = false;
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
@@ -222,6 +225,7 @@
             // 
             // chart3
             // 
+            chartArea3.AxisX.MajorGrid.Enabled = false;
             chartArea3.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
