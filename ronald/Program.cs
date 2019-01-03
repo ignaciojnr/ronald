@@ -14,8 +14,16 @@ namespace ronald
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            if (!cosasGlobales.testConexion()) {
+
+                configurarConeccion configurar = new configurarConeccion();
+                configurar.ShowDialog();
+                if (!cosasGlobales.testConexion())
+                    return;
+            }
             Application.Run(new Form1());
         }
     }

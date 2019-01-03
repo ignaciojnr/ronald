@@ -82,6 +82,12 @@
     <Compile Include="adminEvento.Designer.cs">
       <DependentUpon>adminEvento.cs</DependentUpon>
     </Compile>
+    <Compile Include="configurarConeccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="configurarConeccion.Designer.cs">
+      <DependentUpon>configurarConeccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="cosasGlobales.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
