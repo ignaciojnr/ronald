@@ -11,9 +11,41 @@ namespace ronald
 {
     public static class cosasGlobales
     {
-        //public static string strConexion = "server=localhost; database= ronald;Uid=root;pwd=123456;SSL Mode=None;";
-        public static string strConexion = "server=localhost; database= ronald;Uid=root;pwd=092947411;SSL Mode=None;";
+        public static string servidor = "localhost";
+        public static string baseDeDatos = "ronald";
+        public static string usuario = "root";
+        public static string password = "123456";
+        public static string SSLmode = "None";
+
+        public static string strConexion = "server="+servidor+"; database= "+baseDeDatos+";Uid="+usuario+";pwd="+password+";SSL Mode="+SSLmode+";";
+        
         public static MySqlConnection miConexion = new MySqlConnection(strConexion);
+
+        public static bool testConexion()
+        {
+            try {
+                miConexion.Open();
+                miConexion.Close();
+                return true;
+
+            } catch (Exception e) {
+                miConexion = null;
+                return false;
+            }
+        }
+        
+        public static bool reConectar(string nuevoServidor,string nuevaBaseDeDatos , string nuevoUsuario, string nuevaPassword, string nuevoSSLMode ) {
+            servidor = nuevoServidor;
+            baseDeDatos = nuevaBaseDeDatos;
+            usuario = nuevoUsuario;
+            password = nuevaPassword;
+            SSLmode = nuevoSSLMode;
+            strConexion = "server=" + servidor + "; database= " + baseDeDatos + ";Uid=" + usuario + ";pwd=" + password + ";SSL Mode=" + SSLmode + ";";
+
+            miConexion = new MySqlConnection(strConexion);
+            return testConexion();
+
+    }
 
         internal static void llenarCombobox(ComboBox comboBox1, string values, string display, string consulta)
         {
