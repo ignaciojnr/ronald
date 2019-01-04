@@ -27,12 +27,13 @@ namespace ronald
             if (!cosasGlobales.arrojaResultados("SELECT * FROM evento;")) { }
             else
             {
+                // se restringe el rango de años seleccionables al rango de eventos registrados.
                 consulta = "select distinct year(fecha) as nom from evento  order by fecha;";
                 cosasGlobales.llenarCombobox(comboBox1, "nom", "nom", consulta);
                 cosasGlobales.llenarCombobox(comboBox2, "nom", "nom", consulta);
                 string minDate = cosasGlobales.getDatoUnico("SELECT min(fecha) FROM evento;");
                 string maxDate = cosasGlobales.getDatoUnico("SELECT max(fecha) FROM evento;");
-                // MessageBox.Show(minDate+"\n"+maxDate);
+                //// se restringe el rango de fechas al rango de eventos registrados.
                 DateTime fecha1 = DateTime.ParseExact(minDate, "dd-MM-yyyy H:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
                 DateTime fecha2 = DateTime.ParseExact(maxDate, "dd-MM-yyyy H:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
                 dateTimePicker1.MinDate = fecha1;
@@ -65,24 +66,20 @@ namespace ronald
                 vectnom[i] = mitabla1.Rows[i].ItemArray[0].ToString();
                 vectUtilidad[i] = Int32.Parse(mitabla1.Rows[i].ItemArray[1].ToString());
             }
-           // chart1.Palette = ChartColorPalette.Pastel;
+            // Carga el grafico de utilidad por evento.
             chart1.Titles.Add("Utilidad por Evento");
             chart1.Series["Series1"].LegendText = "Evento";
             chart1.Series["Series1"].XValueMember = "nom";
             chart1.Series["Series1"].YValueMembers = "utilidad";
             chart1.DataSource = mitabla1;
             chart1.Visible = true;
-            /*
-            for (int i =0;i<vectnom.Length;i++) {
-                Series series = chart1.Series.Add(vectnom[i]);
-                series.Label = vectUtilidad[i].ToString();
-                series.Points.Add(vectUtilidad[i]);
-            }*/
+            
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Limpia el grafico.
             chart2.Series.Clear();
             chart2.Titles.Clear();
             
@@ -93,6 +90,7 @@ namespace ronald
                 MessageBox.Show("no se encontraron resultados");
                 return;
             }
+            //Se obtienen los datos a graficar desde la base de datos y se guardan en arreglos.
             mitabla2 = cosasGlobales.getDt(consulta);
             string[] vectnom = new string[mitabla2.Rows.Count];
             int[] vectImpuestos = new int[vectnom.Length];
@@ -107,13 +105,8 @@ namespace ronald
 
             chart2.Palette = ChartColorPalette.Pastel;
             chart2.Titles.Add("Impuesto Acumulado");
-            /*
-            chart1.Series["Series1"].LegendText = "Evento";
-            chart1.Series["Series1"].XValueMember = "nom";
-            chart1.Series["Series1"].YValueMembers = "utilidad";
-            chart1.DataSource = mitabla1;
-            chart1.Visible = true;
-            */
+
+            //Carga el grafico de impuestos (acumulado mensual).
             for (int i =0;i<vectnom.Length;i++) {
                 Series series = chart2.Series.Add(vectnom[i]);
                 series.Label = vectnom[i]+"\n"+ vectImpuestos[i].ToString();
@@ -125,7 +118,7 @@ namespace ronald
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            //Limpia el grafico.
             chart3.Series.Clear();
             chart3.Titles.Clear();
 
@@ -137,6 +130,7 @@ namespace ronald
                 MessageBox.Show("no se encontraron resultados");
                 return;
             }
+            //Se obtienen los datos a graficar desde la base de datos y se guardan en arreglos.
             mitabla3 = cosasGlobales.getDt(consulta);
             string[] vectnom = new string[mitabla3.Rows.Count];
             int[] vectUtilidad = new int[vectnom.Length];
@@ -147,15 +141,10 @@ namespace ronald
             }
            
 
-            //chart2.Palette = ChartColorPalette.Pastel;
+            
             chart3.Titles.Add("Utilidad por Mes");
-            /*
-            chart1.Series["Series1"].LegendText = "Evento";
-            chart1.Series["Series1"].XValueMember = "nom";
-            chart1.Series["Series1"].YValueMembers = "utilidad";
-            chart1.DataSource = mitabla1;
-            chart1.Visible = true;
-            */
+
+            //Carga el grafico de utilidad por mes cambiando el color de la serie de acuerdo al valor del KPI seleccionado en el comboBox. 
             int kpi = Int32.Parse(numericUpDown1.Value.ToString());
             for (int i = 0; i < vectnom.Length; i++)
             {

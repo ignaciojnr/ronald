@@ -29,7 +29,7 @@ namespace ronald
                 return;
             }
             if (cosasGlobales.arrojaResultados("select * from proveedor where rut_empresa = '"+textBox1.Text+"';")) {
-                cosasGlobales.mensajeError("error, el rut ngresado ya existe");
+                cosasGlobales.mensajeError("error, el rut ingresado ya existe");
                 return;
             }
             string rut, nombre, fono, direccion, mail;
@@ -39,7 +39,7 @@ namespace ronald
             direccion = textBox4.Text;
             mail = textBox5.Text;
             string consulta = "INSERT INTO proveedor (`rut_empresa`, `nombre`, `telefono`, `direccion`, `email`) VALUES ('"+rut+"', '"+nombre+"', '"+fono+"', '"+direccion+"', '"+mail+"');";
-            cosasGlobales.insertarGeneral(consulta);
+            cosasGlobales.insertarGeneral(consulta);// Se inserta un nuevo proveedor en la base de datos.
         }
 
         private void label5_Click(object sender, EventArgs e)

@@ -17,11 +17,13 @@ namespace ronald
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Si la configuración predeterminada para conectar 
+            //a la base de datos no es valida abre una ventana para editar los campos.
             if (!cosasGlobales.testConexion()) {
 
                 configurarConeccion configurar = new configurarConeccion();
                 configurar.ShowDialog();
-                if (!cosasGlobales.testConexion())
+                if (!cosasGlobales.testConexion())//En caso de salir de la ventana de configuración sin corregir el problema cierra el programa.
                     return;
             }
             Application.Run(new Form1());

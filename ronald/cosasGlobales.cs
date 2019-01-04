@@ -18,9 +18,12 @@ namespace ronald
         public static string SSLmode = "None";
 
         public static string strConexion = "server="+servidor+"; database= "+baseDeDatos+";Uid="+usuario+";pwd="+password+";SSL Mode="+SSLmode+";";
-        
+        // Conexión a una base de datos MySQL server
         public static MySqlConnection miConexion = new MySqlConnection(strConexion);
-
+        /// <summary>
+        /// retorna true si es posible establecer la coneccion 
+        /// a la base de datos, caso contrario retorna false
+        /// </summary>
         public static bool testConexion()
         {
             try {
@@ -33,7 +36,10 @@ namespace ronald
                 return false;
             }
         }
-        
+        /// <summary>
+        /// Modifica los parámetros de la conexión a la base de datos, retorna true 
+        /// si puede establecer una conexión con los nuevos parametros, caso contrario retorna false
+        /// </summary>
         public static bool reConectar(string nuevoServidor,string nuevaBaseDeDatos , string nuevoUsuario, string nuevaPassword, string nuevoSSLMode ) {
             servidor = nuevoServidor;
             baseDeDatos = nuevaBaseDeDatos;
@@ -46,29 +52,33 @@ namespace ronald
             return testConexion();
 
     }
-
+        /// <summary>
+        /// carga un comboBox a partir de una consulta SQL que se recibe por parámetro.  
+        /// </summary>
         internal static void llenarCombobox(ComboBox comboBox1, string values, string display, string consulta)
         {
-            miConexion.Open();
-
+            
             MySqlCommand micodigo = new MySqlCommand();
             MySqlConnection miconectar = miConexion;
             miconectar.Close();
-            miconectar.Open();
+            miconectar.Open();// inicia una conexion
             micodigo.Connection = miconectar;
 
             micodigo.CommandText = consulta;
             MySqlDataAdapter da1 = new MySqlDataAdapter(micodigo);
             DataTable dt = new DataTable();
-            da1.Fill(dt);
+            da1.Fill(dt);// carga un objeto DataTable con el resultado de la consulta
 
             comboBox1.ValueMember = values;
             comboBox1.DisplayMember = display;
-            comboBox1.DataSource = dt;
+            comboBox1.DataSource = dt;// carga el ComboBox con los datos de la DataTable
 
             miconectar.Close();
 
         }
+        /// <summary>
+        /// ejecuta una consulta SQL y retorna el número de filas afectadas 
+        /// </summary>
         public static int ejecutarConsulta(string consulta)
         {
             int i = 0;
@@ -84,7 +94,10 @@ namespace ronald
             miconectar.Close();
             return i;
         }
-
+        /// <summary>
+        /// retorna como un tipo string el primer elemento
+        /// de la tabla resultante de una consulta SQL recibida por parámetro.
+        /// </summary>
         public static string getDatoUnico(string consulta)
         {
             MySqlCommand micodigo = new MySqlCommand();
@@ -95,7 +108,7 @@ namespace ronald
             miconectar.Open();
             micodigo.Connection = miconectar;
             micodigo.CommandText = (consulta);
-            //MessageBox.Show(micodigo.CommandText);
+            
             MySqlDataAdapter da1 = new MySqlDataAdapter(micodigo);
             DataTable dt = new DataTable();
             da1.Fill(dt);
@@ -106,7 +119,10 @@ namespace ronald
 
 
         }
-
+        /// <summary>
+        /// método que carga un ListBox a partir de una consulta SQL 
+        /// que se recibe por parámetro. 
+        /// </summary>
         internal static void llenarListBox(ListBox listBox1, string values, string display, string consulta)
         {
             miConexion.Open();
@@ -129,7 +145,9 @@ namespace ronald
             miconectar.Close();
 
         }
-
+        /// <summary>
+        /// retorna verdadero o falso dependiendo si una consulta SQL recibida por parámetro tiene resultados.
+        /// </summary>
         internal static bool arrojaResultados(string consulat)
         {
 
@@ -145,7 +163,9 @@ namespace ronald
             miconectar.Close();
             return i;
         }
-
+        /// <summary>
+        /// retorna un objeto DataTable cargado con la tabla resultante de una consulta SQL recibida por parámetro.
+        /// </summary>
         public static DataTable getDt(string consulta)
         {
             MySqlCommand micodigo = new MySqlCommand();
@@ -156,7 +176,7 @@ namespace ronald
             miconectar.Open();
             micodigo.Connection = miconectar;
             micodigo.CommandText = (consulta);
-            //MessageBox.Show(micodigo.CommandText);
+           
             MySqlDataAdapter da1 = new MySqlDataAdapter(micodigo);
             DataTable dt = new DataTable();
             da1.Fill(dt);
@@ -167,10 +187,17 @@ namespace ronald
 
 
         }
-
+        /// <summary>
+        /// despliega una ventana emergente con un icono de error y un mensaje recibido por parámetro.
+        /// </summary>
         public static void mensajeError(string mensaje) {
             MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        /// <summary>
+        /// ejecuta una consulta SQL de tipo INSERT y despliega una notificación para informar
+        /// el éxito de la operación. El método retorna TRUE 
+        /// si la inserción se completo satisfactoriamente, caso contrario retorna FALSE.
+        /// </summary>
         public static bool insertarGeneral(string consulta) {
             int resultado = ejecutarConsulta(consulta);
 
@@ -188,7 +215,9 @@ namespace ronald
 
             return resultado > 0;
         }
-
+        /// <summary>
+        /// retorna el nombre del mes correspondiente al numero recibido por parametro como un tipo string.
+        /// </summary>
         public static string MonthName(int month)
         {
             DateTimeFormatInfo dtinfo = new CultureInfo("es-ES", false).DateTimeFormat;

@@ -26,6 +26,7 @@ namespace ronald
         private void refrescarProvedor()
         {
             string consulta = "SELECT rut_empresa, nombre FROM proveedor order by nombre;";
+            //Si existen proveedores guardados en la base de datos estos se cargan en el comboBox.
             if (cosasGlobales.arrojaResultados(consulta))
                 cosasGlobales.llenarCombobox(comboBox1, "rut_empresa", "nombre",consulta);
         }
@@ -36,6 +37,7 @@ namespace ronald
                 cosasGlobales.mensajeError("el nombre y el productor no pueden ser vacios");
                 return;
             }
+            //Se inserta un producto en la base de datos.
             string consulta = "INSERT INTO producto (`nombre_prod`, `precio_venta`, `precio_compra`, `proveedor_rut`) VALUES ('"+textBox1.Text+"', '"+numericUpDown1.Value.ToString()+"', '"+numericUpDown2.Value.ToString()+"', '"+comboBox1.SelectedValue.ToString()+"');";
             cosasGlobales.insertarGeneral(consulta);
         }
@@ -44,8 +46,8 @@ namespace ronald
         {
             this.Hide();
             addProveedor proveedor = new addProveedor();
-            proveedor.ShowDialog();
-            refrescarProvedor();
+            proveedor.ShowDialog();//Se despliega la ventana de creación de proveedores.
+            refrescarProvedor();//Se actualiza la lista de proveedores del comboBox.
             this.Show();
         }
 
